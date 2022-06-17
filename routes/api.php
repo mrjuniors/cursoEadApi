@@ -3,7 +3,8 @@
 use App\Http\Controllers\Api\{
     CourseController,
     ModuleController,
-    LessonController
+    LessonController,
+    SupportController
 };
 
 use Illuminate\Http\Request;
@@ -25,6 +26,12 @@ Route::get('/courses/{id}/modules', [ModuleController::class, 'index']); //devol
 */
 Route::get('/modules/{id}/lessons', [LessonController::class, 'index']); //devolve uma lesson de um modulo
 Route::get('/lessons/{id}', [LessonController::class, 'show']); //devolve todas as lessons
+
+/**
+ * ROTA PARA RETORAR O SUPORTE
+ */
+Route::get('/supports', [SupportController::class, 'show']); //devolve todas as lessons
+
 
 Route::get('/', function () {
     return response()->json([
