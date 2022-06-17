@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Api;
 
-use App\Models\Api\Lesson;
+use App\Models\Lesson;
 
 //use Your Model
 

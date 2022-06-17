@@ -23,7 +23,7 @@ Route::get('/courses/{id}/modules', [ModuleController::class, 'index']); //devol
 /**
 * ROTA DE LESSONS
 */
-Route::get('/module/{id}/lessons', [LessonController::class, 'index']); //devolve uma lesson de um modulo
+Route::get('/modules/{id}/lessons', [LessonController::class, 'index']); //devolve uma lesson de um modulo
 Route::get('/lessons/{id}', [LessonController::class, 'show']); //devolve todas as lessons
 
 Route::get('/', function () {
