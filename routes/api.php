@@ -30,7 +30,7 @@ Route::get('/lessons/{id}', [LessonController::class, 'show']); //devolve todas 
 /**
  * ROTA PARA RETORAR O SUPORTE
  */
-Route::get('/supports', [SupportController::class, 'show']); //devolve todas as lessons
+Route::get('/supports', [SupportController::class, 'index']); //devolve todas as lessons
 
 
 Route::get('/', function () {

@@ -21,4 +21,16 @@ class Support extends Model
         'C'  => 'Terminado',
     ];
 
+    
+    public function supports()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function lesson()
+    {
+        return $this->belongsTo(Lesson::class);
+    }
+
+
 }
