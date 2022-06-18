@@ -22,7 +22,7 @@ class Support extends Model
     ];
 
     
-    public function supports()
+    public function user()
     {
         return $this->belongsTo(User::class);
     }

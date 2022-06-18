@@ -18,26 +18,31 @@ class SuporteRepository
     {
         $this->entity = $support;
     } 
+    
 
     public function getSupports(array $filters = [])
     {
+       
         return $this->getUserAuth()
             ->supports()
             ->where(function ($query) use ($filters) {
-                if(isset($filters['lesson'])){
+                if (isset($filters['lesson'])) {
                     $query->where('lesson_id', $filters['lesson']);
                 }
-                if(isset($filters['status'])){
+
+                if (isset($filters['status'])) {
                     $query->where('status', $filters['status']);
                 }
-                if(isset($filters['filter'])){
+
+                if (isset($filters['filter'])) {
                     $filter = $filters['filter'];
                     $query->where('description', 'LIKE', "%{$filter}%");
                 }
             })
-            ->get();
-                   
+            ->get();                   
     }
+
+  
 
     private function getUserAuth() : User
     {
