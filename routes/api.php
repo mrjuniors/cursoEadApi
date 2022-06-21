@@ -32,6 +32,7 @@ Route::get('/lessons/{id}', [LessonController::class, 'show']); //devolve todas 
  */
 Route::get('/supports', [SupportController::class, 'index']); //devolve todos os supports estado P
 Route::post('/supports', [SupportController::class, 'store']); //insere um support
+Route::post('/supports/{id}/replies', [SupportController::class, 'createReply']);
 
 Route::get('/', function () {
     return response()->json([
