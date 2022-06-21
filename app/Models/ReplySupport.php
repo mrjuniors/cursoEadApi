@@ -11,9 +11,11 @@ class ReplySupport extends Model
     use HasFactory, UuidTrait;
 
     public $incrementing = false;
-    protected $KeyType = 'uuid';
+    protected $KeyType  = 'uuid';
 
     protected $fillable = ['description','support_id','user_id'];
+
+    protected $touches  =  ['support'];
 
     public function support()
     {
