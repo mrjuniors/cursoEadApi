@@ -13,9 +13,9 @@ class Support extends Model
     public $incrementing = false;
     protected $KeyType = 'uuid';
 
-    protected $fillable = ['status','description'];
+    protected $fillable = ['status','description','lesson_id'];
 
-    protected $statusOptions = [
+    public $statusOptions = [
         'P'  => 'Pendente, A espera do Professor',
         'A'  => 'Agurdar resposta do Aluno',
         'C'  => 'Terminado',

@@ -30,8 +30,8 @@ Route::get('/lessons/{id}', [LessonController::class, 'show']); //devolve todas 
 /**
  * ROTA PARA RETORAR O SUPORTE
  */
-Route::get('/supports', [SupportController::class, 'index']); //devolve todas as lessons
-
+Route::get('/supports', [SupportController::class, 'index']); //devolve todos os supports estado P
+Route::post('/supports', [SupportController::class, 'store']); //insere um support
 
 Route::get('/', function () {
     return response()->json([
