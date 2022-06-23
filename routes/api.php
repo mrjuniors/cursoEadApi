@@ -5,11 +5,19 @@ use App\Http\Controllers\Api\{
     ModuleController,
     LessonController,
     SupportController,
-    ReplySupportController
+    ReplySupportController,
+    
 };
+use App\Http\Controllers\Api\Auth\AuthController;
 
-use Illuminate\Http\Request;
+
 use Illuminate\Support\Facades\Route;
+
+/**
+ * Auth
+ */
+Route::post('/auth', [AuthController::class, 'auth']);
+Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 
 /**
 * ROTAS CURSOS
@@ -31,9 +39,10 @@ Route::get('/lessons/{id}', [LessonController::class, 'show']); //devolve todas 
 /**
  * ROTA PARA RETORAR O SUPORTE
  */
+Route::get('/my-supports', [SupportController::class, 'mySupports']); //devolve todos os supports de um utilizador autenticado
 Route::get('/supports', [SupportController::class, 'index']); //devolve todos os supports estado P
 Route::post('/supports', [SupportController::class, 'store']); //insere um support
-Route::post('/replies', [ReplySupportController::class, 'createReply']);
+Route::post('/replies', [ReplySupportController::class, 'createReply']); //responde a um pedido de suporte
 
 Route::get('/', function () {
     return response()->json([
