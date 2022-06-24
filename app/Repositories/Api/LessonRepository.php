@@ -36,16 +36,15 @@ class LessonRepository
     public function markLessonViewed(string $lessonId)
     {
         $user = $this->getUserAuth();
-        $view = $user->views()->where('lesson_id',$lessonId)->first();
-        
-        //CASO JA EXISTA UMA VIEW APENAS EFETUA O UPDATE
+
+        $view = $user->views()->where('lesson_id', $lessonId)->first();
+
         if ($view) {
             return $view->update([
                 'qty' => $view->qty + 1,
             ]);
         }
 
-        //CASO NAO EXISTA UMA VIEW ELE CRIA UMA NOVA VIEW
         return $user->views()->create([
             'lesson_id' => $lessonId
         ]);

@@ -53,7 +53,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     */
     Route::get('/modules/{id}/lessons', [LessonController::class, 'index']); //devolve uma lesson de um modulo
     Route::get('/lessons/{id}', [LessonController::class, 'show']); //devolve todas as lessons
-    Route::get('/lessons', [LessonController::class, 'viewed']); //devolve todas as views das liçoes
+    Route::post('/lessons/viewed', [LessonController::class, 'viewed']); //devolve todas as views das liçoes
 
     /**
      * ROTA PARA RETORAR O SUPORTE
