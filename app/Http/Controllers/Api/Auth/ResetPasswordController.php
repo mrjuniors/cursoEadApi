@@ -19,14 +19,14 @@ class ResetPasswordController extends Controller
 
         return $status === Password::RESET_LINK_SENT
                     ? response()->json(['status' => __($status)])
-                    : response()->json(['email' => __($status)], 422);
+                    : response()->json(['email'  => __($status)], 422);
     }
 
     public function resetPassword(Request $request)
     {
         $request->validate([
-            'token' => 'required',
-            'email' => 'required|email',
+            'token'    => 'required',
+            'email'    => 'required|email',
             'password' => 'required|min:6|max:15',
         ]);
 
